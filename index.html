@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Kevin Da Cruz</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=500">
+    <meta name="color-scheme" content="dark light">
+    
+    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
+    <link rel="icon" href="media/favicon.png" type="image/x-icon">
+	
+	<link id="pagestyle" href="style.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+<!--    font-family: 'Fira Sans', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<!--    font-family: 'Noto Sans JP', sans-serif;-->
+
+    
+    <script>
+        var fullscreenToggle = false;
+        
+        function enlargeVideo(){
+            var vid = document.getElementById("slidevideo");
+            document.getElementById("slidevideo").style.animation = "";
+            document.getElementById("gradientContainer").style.animation = "";
+            if (vid.style.maxHeight == ""){
+                document.getElementById("slidevideo").style.animation = "0.8s ease 0s 1 scaleUp";
+                document.getElementById("slidevideo").style.maxHeight = "1000px";
+                document.getElementById("slidevideo").style.height = "1000px";
+                document.getElementById("gradientContainer").style.animation = "0.8s ease 0s 1 scaleUp";
+                document.getElementById("gradientContainer").style.maxHeight = "1000px";
+                document.getElementById("gradientContainer").style.height = "1000px";
+                fullscreenToggle = true;
+            }
+            else{
+                document.getElementById("slidevideo").style.height = "";
+                document.getElementById("slidevideo").style.maxHeight = "";
+                document.getElementById("gradientContainer").style.maxHeight = "";
+                document.getElementById("gradientContainer").style.height = "";
+                fullscreenToggle = false;
+            }
+            
+            if(fullscreenToggle){
+                document.getElementById("gradientText").style.opacity = "0";
+                document.getElementById("gradientText").style.animation = "0.8s ease 0s 1 fadeOut";
+                document.getElementById("bannerControls").style.opacity = "0.2";
+            }
+            else if(!fullscreenToggle){
+                document.getElementById("gradientText").style.animation = "0.8s ease 0s 1 fadeIn";
+                document.getElementById("gradientText").style.opacity = "1";
+                document.getElementById("bannerControls").style.opacity = "1";
+            }
+        }
+        
+        function enableMobileMenu(){
+            menu = document.getElementById("mobileMenuBar");
+            if (menu.style.display == ""){
+                document.getElementById("darkenScreen").style.display = "block";
+                document.getElementById("mobileMenuBar").style.display = "block";
+                document.getElementById("darkenScreen").style.animation = "0.8s ease 0s 1 fadeIn";
+                document.getElementById("mobileMenuBar").style.animation = "0.8s ease 0s 1 slideInFromAbove";
+            }
+            else {
+                document.getElementById("mobileMenuBar").style.animation = "0.8s ease 0s 1 slideOutFromBelow";
+                document.getElementById("darkenScreen").style.animation = "0.8s ease 0s 1 fadeOut";
+                setTimeout(function()
+                          {
+                    document.getElementById("darkenScreen").style.display = "none";
+                    document.getElementById("mobileMenuBar").style.display = "";
+                }, 800);
+            }
+        }
+        
+        function swapStyleSheet(){
+            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+              document.getElementById("pagestyle").setAttribute("href", "styleMobile.css");
+                document.getElementById("title").innerHTML = "android";
+            }
+            if(/iPad|iPhone|iPod/i.test(navigator.platform)){
+              document.getElementById("pagestyle").setAttribute("href", "styleiOS.css");
+                document.getElementById("title").innerHTML = "ios";
+            }
+            if(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1){
+                document.getElementById("pagestyle").setAttribute("href", "styleiOS.css");
+            }
+            else{
+              document.getElementById("pagestyle").setAttribute("href", "style.css");
+            }
+        }
+        
+        swapStyleSheet();
+    </script>
+    
+</head>
+<body>  
+    
+    <div class="header">
+        <div class="headerMenu">
+            <a href="index.html#">
+                <p class="headerTitle"><b>Kevin Da Cruz</b></p>
+            </a>
+            
+            <a href="index.html#">
+                <p class="headerLinks">Home</p>
+            </a>
+            
+            <a href="index.html#work">
+                <p class="headerLinks">Work</p>
+            </a>
+            
+            <a href="index.html#contact">
+                <p class="headerLinks">Contact</p>
+            </a>
+            
+            <a href="Media/Kevin%20Da%20Cruz%20Resume.pdf" target="_blank">
+                <p class="headerLinks">Resume</p>
+            </a>
+        </div>
+    </div>
+    
+    <div id="darkenScreen">
+        <div class="mobileMenuSticky">
+            <button onclick="enableMobileMenu()"><img src="Media/menu%20close%20icon.png"></button>  
+        </div>
+    </div>
+    
+    <div id="mobileMenuBar">
+            <a href="index.html#">
+                <p class="menuLinks" onclick="enableMobileMenu()">Home</p>
+            </a>
+
+            <a href="index.html#work">
+                <p class="menuLinks" onclick="enableMobileMenu()">Work</p>
+            </a>
+
+            <a href="index.html#contact">
+                <p class="menuLinks" onclick="enableMobileMenu()">Contact</p>
+            </a>
+        
+            <a href="Media/Kevin%20Da%20Cruz%20Resume.pdf" target="_blank">
+                <p class="menuLinks" onclick="enableMobileMenu()">Resume</p>
+            </a>
+    </div>
+    
+    <div class="videoGallery">
+    </div>
+    
+    <div id="aboutMe"></div>
+    <div class="imagebanner">
+        <img class="imagebanner2" src="Media/banner.gif" style="filter: blur(8px)">
+        
+        <div class="desktopAbout">
+            <div id="aboutMe" style="margin-top: 160px"></div>
+                <div class="aboutText" style="width: 100%; margin: 0 auto; padding-bottom: 30px;">
+                    <div id="aboutText" class="projectCard2" style="padding-bottom: 60px; padding-top: 0px; border-radius: 20px; background-color: rgba(125,125,125,0.75)">
+                        <img class="aboutThumbnail" src="Media/profile.jpeg" style="margin-top: 125px">
+                        <div class="welcomePanel" style="padding-top: 1px; margin-left: 300px">
+                            <h3 style="font-size: 3.5em; margin-left: 0">Hi, I'm Kevin!</h3>
+                            <p style="margin-top: 10px">I'm a game developer with a love for crafting unique, fun, and memorable experiences. I generally focus on programming, but like to learn about other areas of game development in my downtime.</p>
+                            <p>The medium of games allows us to create fun, exciting, and even sad experiences that can resonate with players in a way no other medium can. If you've got an awesome idea, or just want to talk games, get in touch!</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+            
+    <div class="buffer"></div>
+   
+    
+    <div class="content" style="border-top: 3px solid #111111">
+        <div class="mobileAbout">
+            <div class="aboutText" style="width: 100%; margin: 0 auto; padding-bottom: 30px; padding-top: 70px">
+                <div id="aboutText" class="projectCard2" style="padding-bottom: 80px">
+                    <img class="aboutThumbnail" src="Media/profile.jpeg" style="margin-top: 45px">
+                    <h3 style="font-size: 3.5em">Hi, I'm Kevin!</h3>
+                    <p style="margin-top: 10px">I'm a game developer with a love for crafting unique, fun, and memorable experiences. I generally focus on programming, but like to learn about other areas of game development in my downtime.</p>
+                    <p>The medium of games allows us to create fun, exciting, and even sad experiences that can resonate with players in a way no other medium can. If you've got an awesome idea, or just want to talk games, get in touch!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="grid-container">
+        <div class="professionalProjectsGrid" style="border-bottom: 2px solid #111111; margin-bottom: 30px">
+            <h2 id="work" style="margin-top: 10px">Work (in progress)</h2>
+        </div>
+    </div>
+    
+        <div class="professionalProjectsGrid" style="background-color: #131313; margin-bottom: -40px">
+        
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: burlywood; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="media/sonic%20dash%20banner.jpg">
+                </div>
+                <div class="projectsCard">
+                    <h2>Sonic Dash</h2>
+                    <p style="padding-bottom: 100px">Run and jump through fun 3D race courses as Sonic the Hedgehog, Knuckles, Tails and other Sonic friends and heroes in this racing & endless runner game. Run and race past challenging obstacles in this fast and frenzied endless running game by SEGA! Sonic Dash is a fun game for kids and adults alike!</p>
+                    <button class="DownloadButton" style="margin-bottom: 50px"><a href="https://play.google.com/store/apps/details?id=com.sega.sonicdash&hl=en&gl=US" target="_blank">Google Play Store</a></button>
+                    <button class="DownloadButton"><a href="https://apps.apple.com/us/app/sonic-dash-endless-runner-game/id582654048" target="_blank">Apple App Store</a></button>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: burlywood; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="media/sonic%20forces%20banner.png">
+                </div>
+                <div class="projectsCard">
+                    <h2>Sonic Forces: Speed Battle</h2>
+                    <p style="padding-bottom: 100px">Sonic the Hedgehog is back and running in this fast and cool casual multiplayer racing & battle game from SEGA! Run, race, and compete in multiplayer running games with real players from around the world for a true multiplayer experience!</p>
+                    <button class="DownloadButton" style="margin-bottom: 50px"><a href="https://play.google.com/store/apps/details?id=com.sega.sprint&hl=en&gl=US" target="_blank">Google Play Store</a></button>
+                    <button class="DownloadButton"><a href="https://apps.apple.com/us/app/sonic-forces-racing-battle/id1262362476" target="_blank">Apple App Store</a></button>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: burlywood; padding-bottom: 0px; padding-top: 0px">
+                    <!--<img class="projectThumbnail" src="">-->
+                </div>
+                <div class="projectsCard">
+                    <h2>Sunseekers</h2>
+                    <p>Coming soon...</p>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: burlywood; padding-bottom: 0px; padding-top: 0px">
+                    <!--<img class="projectThumbnail" src="">-->
+                </div>
+                <div class="projectsCard">
+                    <h2>Submarine Escape VR</h2>
+                    <p>Coming soon...</p>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: ghostwhite; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="Media/banner.gif">
+                </div>
+                <div class="projectsCard">
+                    <h2>Lightfoot</h2>
+                    <p style="padding-bottom: 100px">You are the <i>Lightfoot</i>, an individual destined to venture the void and reach the origin of all things. In this one-level concept demo, make use of your parkour abilities to reach the next gateway.</p>
+                    <button class="DownloadButton"><a href="https://drive.google.com/file/d/1vezxSnEhZ6u70HFFxn1E40WdgQj7tj1e/view?usp=sharing" target="_blank">Download demo (Windows)</a></button>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: ghostwhite; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="Media/RobotsMayCry/robotsmaycry001.png">
+                </div>
+                <div class="projectsCard">
+                    <h2>Robots May Cry</h2>
+                    <p style="padding-bottom: 100px">Developed for Global Game Jam 2021: A robot head is discarded into the scrap lands, and must make its way to freedom by obtaining new body parts and recovering the memory cards of other fallen comrades.</p>
+                    <button class="DownloadButton"><a href="https://drive.google.com/file/d/1rnsf0tfJ-B9aQFgkJbi5cdnRatLCi15w/view?usp=sharing" target="_blank">Download game (Windows)</a></button>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: ghostwhite; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="Media/Deadlock/LetThereBeLight-1.gif">
+                </div>
+                <div class="projectsCard">
+                    <h2>DEADLOCK</h2>
+                    <p style="padding-bottom: 100px">You're not alone down there. A creepy puzzle game concept with a branching narrative and gameplay mechanics inspired by the survival horror genre.</p>
+                    <button class="DownloadButton"><a href="https://drive.google.com/file/d/1tGe-_-PAoHstE_x4VidrYaiuyBgUDoiG/view?usp=sharing" target="_blank">Download demo (Windows)</a></button>
+                </div>
+            </div>
+
+            <div class="projectsGrid" style="padding-bottom: 10px">
+                <div class="projectThumbnail" style="background-color: ghostwhite; padding-bottom: 0px; padding-top: 0px">
+                    <img class="projectThumbnail" src="Media/Dweller/TakingTheSword-1.gif" >
+                </div>
+                <div class="projectsCard">
+                    <h2 style="font-size: 1.6em; margin-top: 30px">Dweller</h2>
+                    <p style="padding-bottom: 100px">A rogue-lite concept demo with procedurally generated dungeons and an element-based magic system with type advantages/disadvantages.</p>
+                    <button class="DownloadButton"><a href="https://drive.google.com/file/d/11kBuCPbnfdZtrnbaG5RQAbPYDt8Vlf2H/view?usp=sharing" target="_blank">Download demo (Windows)</a></button>
+                </div>
+            </div>
+            
+        </div>
+    
+    <div class="grid-container" style="margin-top: 0px; padding-top: 100px">
+        <div class="professionalProjectsGrid" style="border-bottom: 2px solid #111111">
+            <div style="width: 80%; max-width: 900px; margin: 0 auto;">
+                <h2 id="otherProjects" style="margin-top: 1px">Platforms</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid-container-social">
+<!--
+            <div class="projectsGrid">
+                <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                    <a href="" target="_blank">
+                        <img class="projectThumbnail" src="Media/Twitter%20icon.png" style="background-color: deepskyblue; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+                </div>
+                <div class="smallProjectsCard">
+                    <h3>X</h3>
+                    <p>Tweeting about work & play.</p>
+                </div>
+            </div>
+-->
+        
+        <!--LinkedIn-->
+        <div class="projectsGrid" id="contact">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="https://www.linkedin.com/in/kevindacruz00/" target="_blank"><img class="projectThumbnail" src="Media/LinkedIn%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>LinkedIn</h3>
+                <p>Let's network!</p>
+            </div>
+        </div>
+
+        <!--GitHub-->
+        <div class="projectsGrid">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="https://github.com/kmdc64" target="_blank"><img class="projectThumbnail" src="Media/github%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>GitHub</h3>
+                <p>Personal projects that I can share.</p>
+            </div>
+        </div>
+        
+        <!--Email-->
+        <div class="projectsGrid">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="mailto: kmdcruz64@gmail.com" target="_blank"><img class="projectThumbnail" src="Media/email%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>Email</h3>
+                <p>Get in contact.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="emailButton">
+            <p>© Kevin Da Cruz 2024</p>
+        </div>
+    </div>
+    
+    <div class="mobileMenuSticky">
+        <button onclick="enableMobileMenu()"><img src="Media/menu%20icon.png"></button>  
+    </div>
+</body>
+</html>
