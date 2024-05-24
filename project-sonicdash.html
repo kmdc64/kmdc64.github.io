@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Kevin Da Cruz</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=500">
+    <meta name="color-scheme" content="dark light">
+    
+    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
+    <link rel="icon" href="media/favicon.png" type="image/x-icon">
+	
+	<link id="pagestyle" href="style.css" rel="stylesheet" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+<!--    font-family: 'Fira Sans', sans-serif;-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<!--    font-family: 'Noto Sans JP', sans-serif;-->
+
+    
+    <script>
+        var fullscreenToggle = false;
+        
+        function enlargeVideo(){
+            var vid = document.getElementById("slidevideo");
+            document.getElementById("slidevideo").style.animation = "";
+            document.getElementById("gradientContainer").style.animation = "";
+            if (vid.style.maxHeight == ""){
+                document.getElementById("slidevideo").style.animation = "0.8s ease 0s 1 scaleUp";
+                document.getElementById("slidevideo").style.maxHeight = "1000px";
+                document.getElementById("slidevideo").style.height = "1000px";
+                document.getElementById("gradientContainer").style.animation = "0.8s ease 0s 1 scaleUp";
+                document.getElementById("gradientContainer").style.maxHeight = "1000px";
+                document.getElementById("gradientContainer").style.height = "1000px";
+                fullscreenToggle = true;
+            }
+            else{
+                document.getElementById("slidevideo").style.height = "";
+                document.getElementById("slidevideo").style.maxHeight = "";
+                document.getElementById("gradientContainer").style.maxHeight = "";
+                document.getElementById("gradientContainer").style.height = "";
+                fullscreenToggle = false;
+            }
+            
+            if(fullscreenToggle){
+                document.getElementById("gradientText").style.opacity = "0";
+                document.getElementById("gradientText").style.animation = "0.8s ease 0s 1 fadeOut";
+                document.getElementById("bannerControls").style.opacity = "0.2";
+            }
+            else if(!fullscreenToggle){
+                document.getElementById("gradientText").style.animation = "0.8s ease 0s 1 fadeIn";
+                document.getElementById("gradientText").style.opacity = "1";
+                document.getElementById("bannerControls").style.opacity = "1";
+            }
+        }
+        
+        function enableMobileMenu(){
+            menu = document.getElementById("mobileMenuBar");
+            if (menu.style.display == ""){
+                document.getElementById("darkenScreen").style.display = "block";
+                document.getElementById("mobileMenuBar").style.display = "block";
+                document.getElementById("darkenScreen").style.animation = "0.8s ease 0s 1 fadeIn";
+                document.getElementById("mobileMenuBar").style.animation = "0.8s ease 0s 1 slideInFromAbove";
+            }
+            else {
+                document.getElementById("mobileMenuBar").style.animation = "0.8s ease 0s 1 slideOutFromBelow";
+                document.getElementById("darkenScreen").style.animation = "0.8s ease 0s 1 fadeOut";
+                setTimeout(function()
+                          {
+                    document.getElementById("darkenScreen").style.display = "none";
+                    document.getElementById("mobileMenuBar").style.display = "";
+                }, 800);
+            }
+        }
+        
+        function swapStyleSheet(){
+            if(/Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+              document.getElementById("pagestyle").setAttribute("href", "styleMobile.css");
+                document.getElementById("title").innerHTML = "android";
+            }
+            if(/iPad|iPhone|iPod/i.test(navigator.platform)){
+              document.getElementById("pagestyle").setAttribute("href", "styleiOS.css");
+                document.getElementById("title").innerHTML = "ios";
+            }
+            if(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1){
+                document.getElementById("pagestyle").setAttribute("href", "styleiOS.css");
+            }
+            else{
+              document.getElementById("pagestyle").setAttribute("href", "style.css");
+            }
+        }
+        
+        swapStyleSheet();
+    </script>
+    
+</head>
+<body>  
+    
+    <div class="header">
+        <div class="headerMenu">
+            <a href="index.html#">
+                <p class="headerTitle"><b>Kevin Da Cruz</b></p>
+            </a>
+            
+            <a href="index.html#">
+                <p class="headerLinks">Home</p>
+            </a>
+            
+            <a href="index.html#work">
+                <p class="headerLinks">Work</p>
+            </a>
+            
+            <a href="index.html#contact">
+                <p class="headerLinks">Contact</p>
+            </a>
+            
+            <a href="https://github.com/kmdc64">
+                <p class="headerLinks">GitHub</p>
+            </a>
+            
+            <a href="media/Kevin%20Da%20Cruz%20CV.pdf" target="_blank">
+                <p class="headerLinks">Resume</p>
+            </a>
+        </div>
+    </div>
+    
+    <div id="darkenScreen">
+        <div class="mobileMenuSticky">
+            <button onclick="enableMobileMenu()"><img src="media/menu%20close%20icon.png"></button>  
+        </div>
+    </div>
+    
+    <div id="mobileMenuBar">
+        <a href="index.html#">
+            <p class="menuLinks" onclick="enableMobileMenu()">Home</p>
+        </a>
+
+        <a href="index.html#work">
+            <p class="menuLinks" onclick="enableMobileMenu()">Work</p>
+        </a>
+
+        <a href="index.html#contact">
+            <p class="menuLinks" onclick="enableMobileMenu()">Contact</p>
+        </a>
+        
+        <a href="https://github.com/kmdc64">
+            <p class="menuLinks" onclick="enableMobileMenu()">GitHub</p>
+        </a>
+
+        <a href="media/Kevin%20Da%20Cruz%20CV.pdf" target="_blank">
+            <p class="menuLinks" onclick="enableMobileMenu()">Resume</p>
+        </a>
+    </div>
+    
+    <div class="videoGallery">
+    </div>
+    
+    <div class="imagebanner">
+        <img class="imagebanner2" src="Media/sonic%20dash%20banner.jpg">
+    </div>
+    
+    <div class="buffer"></div>
+                
+    <div class="content" style="border-top: 3px solid #111111">
+        <div class="aboutText" style="width: 100%; margin: 0 auto; padding-bottom: 30px; padding-top: 70px">
+            <div id="aboutText" class="projectCard2" style="padding-bottom: 80px">
+                <h3 style="font-size: 3.5em">Sonic Dash (Android, iOS)</h3>
+                <p style="margin-top: 10px">"Run and jump through fun 3D race courses as Sonic the Hedgehog, Knuckles, Tails and other Sonic friends and heroes in this racing & endless runner game. Run and race past challenging obstacles in this fast and frenzied endless running game by SEGA! Sonic Dash is a fun game for kids and adults alike!"</p>
+                
+                <button class="DownloadButton" style="margin-top: 50px"><a href="https://play.google.com/store/apps/details?id=com.sega.sonicdash&hl=en&gl=US" target="_blank">Google Play Store</a></button>
+                <button class="DownloadButton"><a href="https://apps.apple.com/us/app/sonic-dash-endless-runner-game/id582654048" target="_blank">Apple App Store</a></button>
+                
+                <p style="margin-top: 10px">I currently work as a UI-specialised programmer on the project, in addition to my time on other SEGA HARDlight projects. I am responsible for:
+                    <ul>
+                        <li>Collaborating with artists & designers on the development of several major UI/player-facing features. Some examples include:</li>
+                        <ul>
+                            <li>Overhaul of the main menu.</li>
+                            <li>New in-game HUD elements.</li>
+                            <li>Overhaul of the character selection screen.</li>
+                            <li>Integration of Character Card collectables across the UI.</li>
+                        </ul>
+                        <li>Developing tools to optimise the character creation pipeline & UI art pipelines.</li>
+                        <li>Improving key areas of the codebase to allow for greater scalability of new & existing UI systems, as well as optimising on low-end devices.</li>
+                        <li>Writing studio-wide documentation on UI implementation & best practices. This has helped onboard new colleagues in the same discipline.</li>
+                        <li>Occassionally acting as the release engineer to manage a 'merge' or 'release' branch to build process.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid-container" style="margin-top: 0px; padding-top: 100px">
+        <div class="professionalProjectsGrid" style="border-bottom: 2px solid #111111">
+            <div style="width: 80%; max-width: 900px; margin: 0 auto;">
+                <h2 id="otherProjects" style="margin-top: 1px">Platforms</h2>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid-container-social">
+<!--
+            <div class="projectsGrid">
+                <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                    <a href="" target="_blank">
+                        <img class="projectThumbnail" src="media/Twitter%20icon.png" style="background-color: deepskyblue; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+                </div>
+                <div class="smallProjectsCard">
+                    <h3>X</h3>
+                    <p>Tweeting about work & play.</p>
+                </div>
+            </div>
+-->
+        
+        <!--LinkedIn-->
+        <div class="projectsGrid" id="contact">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="https://www.linkedin.com/in/kevindacruz00/" target="_blank"><img class="projectThumbnail" src="media/LinkedIn%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>LinkedIn</h3>
+                <p>Let's network!</p>
+            </div>
+        </div>
+
+        <!--GitHub-->
+        <div class="projectsGrid">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="https://github.com/kmdc64" target="_blank"><img class="projectThumbnail" src="media/github%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>GitHub</h3>
+                <p>Personal projects that I can share.</p>
+            </div>
+        </div>
+        
+        <!--Email-->
+        <div class="projectsGrid">
+            <div class="projectThumbnail" style="box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.05);">
+                <a href="mailto: kmdcruz64@gmail.com" target="_blank"><img class="projectThumbnail" src="media/email%20icon.png" style="background-color: black; object-fit: fill; width: 250px; height: 250px; margin: 0 auto; border-radius: 300px"></a>
+            </div>
+            <div class="smallProjectsCard">
+                <h3>Email</h3>
+                <p>Get in contact.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="emailButton">
+            <p>© Kevin Da Cruz 2024</p>
+        </div>
+    </div>
+    
+    <div class="mobileMenuSticky">
+        <button onclick="enableMobileMenu()"><img src="media/menu%20icon.png"></button>  
+    </div>
+</body>
+</html>
