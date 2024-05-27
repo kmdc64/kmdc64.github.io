@@ -1390,6 +1390,11 @@ ul {
     height: 100%;
 }
 
+.showcaseImg {
+    width: 200px;
+    height: auto;
+}
+
 @media only screen and (max-width: 960px){
     .aboutText .projectThumbnail{
         float: none;
